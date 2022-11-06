@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { UserProvider } from './UserContext';
 import Name from './NameComponent';
 import Location from './LocationComponent';
 import UserForm from './UserForm';
@@ -31,8 +30,6 @@ function App() {
 
 const rootElement = document.getElementById('root');
 ReactDOM.render(
-    <UserProvider>
-        <App />
-    </UserProvider>,
+        <App />,
     rootElement
 );
