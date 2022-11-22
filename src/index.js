@@ -4,6 +4,7 @@ import Name from './NameComponent';
 import Location from './LocationComponent';
 import UserForm from './UserForm';
 import './styles.css';
+import { UserProvider } from './UserContext';
 
 // This component updates with data from context
 function App() {
@@ -30,6 +31,8 @@ function App() {
 
 const rootElement = document.getElementById('root');
 ReactDOM.render(
-        <App />,
+        <UserProvider>
+            <App />
+        </UserProvider>,
     rootElement
 );

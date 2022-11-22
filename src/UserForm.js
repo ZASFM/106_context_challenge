@@ -1,32 +1,40 @@
 import React, { useContext } from "react";
+import { useGlobalContext } from "./UserContext";
 
 const Form = () => {
+    const {data,setData}=useGlobalContext();
 
-    const user = '';//YOUR CODE HERE
-    function onNameChange(e) {
-       //YOUR CODE HERE
-    }
-    function onLocationChange(e) {
-        //YOUR CODE HERE
+    const handleChange=(e)=>{
+        const {name,value}=e.target;
+        setData(preVal=>{
+            return {
+                ...preVal,
+                [name]:value,
+            }
+        })
     }
 
     return (
         <div className="user-form">
-            {/* Change user's name in context */}
             <div className="input-item">
                 <label className="label">Update Name: </label>
                 <input
                     className="input"
-                    onChange={e => onNameChange(e)}
+                    type="text"
+                    name="name"
+                    value={data.name}
+                    onChange={handleChange}
                 />
             </div>
-
-            {/* Change user's location in context */}
+            
             <div className="input-item">
                 <label className="label">Update Location: </label>
                 <input
                     className="input"
-                    onChange={e => onLocationChange(e)}
+                    type="text"
+                    name="location"
+                    value={data.location}
+                    onChange={handleChange}
                 />
             </div>
         </div>
